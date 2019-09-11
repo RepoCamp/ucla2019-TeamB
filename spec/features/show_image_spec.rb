@@ -25,5 +25,6 @@ RSpec.feature 'Display an Image' do
     expect(page).to have_content image.keyword.first
     expect(page).to have_content image.keyword.last
     expect(page).to have_content image.year.first
+    expect(page).to have_content "TEST FAIL"
   end
 end
