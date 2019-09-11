@@ -1,12 +1,20 @@
+# from https://github.com/RepoCamp/ohsu2018/blob/master/.travis.yml
 language: ruby
+sudo: false
+cache:
+  bundler: true
+rvm:
+  - 2.5.0
+env:
+  global:
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+before_install:
+  - gem update --system
+  - gem install bundler
+before_script:
+  - bundle exec rake db:create db:setup
 
 services:
-  - docker
+  - redis-server
 
-before_install:
-  - docker-compose run web rails db:setup
-  - docker-compose up
-
-script:
-  - docker-compose run web rspec spec
-  
+script: xvfb-run -a bundle exec rake ci
