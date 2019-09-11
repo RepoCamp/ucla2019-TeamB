@@ -9,3 +9,4 @@ before_install:
 
 script:
   - docker-compose run web rspec spec
+  
