@@ -29,6 +29,8 @@ Run rspec spec in docker each time a pull request is made or updated.
 
 ## Create an image CSV importer
 
+$ `IMPORT_FILE_PATH=/ucla2019/imports rake sample:import[/ucla2019/imports/animals1.csv]`
+
 +++
 
 ## View imported images with IIIF viewer
